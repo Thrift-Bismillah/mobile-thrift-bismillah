@@ -1,0 +1,25 @@
+.logo-container {
+  display: flex;
+}
+
+.logo-login {
+  width: 7em;
+  margin: 0 auto;
+}
+
+.logo-text-heading {
+  font-size: 14pt;
+  text-align: center;
+}
+
+.logo-text-heading > span {
+  color: var(--ion-color-primary);
+  font-weight: bold;
+}
+
+.logo-text-subheading {
+  margin-top: -2pt;
+  font-size: 12pt;
+  text-align: center;
+  color: var(--ion-color-medium);
+}
