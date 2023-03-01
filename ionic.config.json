@@ -1,0 +1,7 @@
+{
+  "name": "mobile-thrift-bismillah",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
