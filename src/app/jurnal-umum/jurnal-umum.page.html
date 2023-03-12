@@ -1,22 +1,99 @@
-<ion-header>
+<ion-header [translucent]="true" class="header">
   <ion-toolbar>
-    <ion-title>jurnal-umum</ion-title>
+    <ion-title>
+      Jurnal Umum
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleFilter()">
+        <ion-icon slot="icon-only" [name]="showFilter ? 'close' : 'filter'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
-  <ion-list-header>
-    <ion-label>Tanggal</ion-label>
-    <ion-label>No. Akun</ion-label>
-    <ion-label>Nama Akun</ion-label>
-    <ion-label>Debet</ion-label>
-    <ion-label>Kredit</ion-label>
-  </ion-list-header>
-  <ion-item *ngFor="let item of jurnalUmumData">
-    <ion-label>{{  }}</ion-label>
-    <ion-label>{{  }}</ion-label>
-    <ion-label>{{  }}</ion-label>
-    <ion-label>{{  }}</ion-label>
-    <ion-label>{{  }}</ion-label>
-  </ion-item>
+  <ion-card [hidden]="!showFilter">
+    <ion-card-header>
+      <ion-card-title>
+        Filter
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked" class="label-filter">Tanggal Awal</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="tanggal_awal"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked" class="label-filter">Tanggal Akhir</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="tanggal_akhir"></ion-datetime>
+      </ion-item>
+      <ion-button expand="block" (click)="loadData()" class="btn-filter">Filter</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-content>
+ 
+
+    <ion-grid class="ion-text-center">
+  
+      <ion-row class="ion-margin">
+        <ion-col  class="title">
+          <ion-title>
+            <ion-text color="default">
+              Jurnal Umum
+            </ion-text>
+          </ion-title>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row class="header-row" sticky>
+        <ion-col>
+          <ion-text>Tanggal</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>No. Akun</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>Nama Akun</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>Debet</ion-text>
+        </ion-col>
+        <ion-col>
+          <ion-text>Kredit</ion-text>
+        </ion-col>
+      </ion-row>
+  
+  
+      <ion-row *ngFor="let jurnal_memorial of jurnal_memorials">
+        <ion-col>
+          <ion-text>
+              {{ jurnal_memorial.jurnal_tanggal }}
+          </ion-text>
+        </ion-col>
+          <ion-col>
+            <ion-text>
+              {{ jurnal_memorial.no_akun }}
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              {{ jurnal_memorial.nama_akun }}
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              {{ jurnal_memorial.debet }}
+            </ion-text>
+          </ion-col>
+          <ion-col>
+            <ion-text>
+              {{ jurnal_memorial.kredit }}
+            </ion-text>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
 </ion-content>

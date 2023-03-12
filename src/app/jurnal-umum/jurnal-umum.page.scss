@@ -1,0 +1,26 @@
+.header-row {
+    background: purple;
+    color: #fff;
+    font-size: 18px;
+  }
+  
+  .title {
+    border: 1px solid #ECEEEF;
+  }
+
+  .col{
+    max-width :20% !important;
+  }
+
+  .label-filter {
+    font-size: 18px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .btn-filter {
+    margin-top: 20px !important;
+  }
+
+  .header {
+    --ion-background-color: purple !important;
+  }
